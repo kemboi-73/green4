@@ -1,0 +1,8 @@
+
+{
+  "name": "GreenSydney Landscapes",
+  "description": "A premium, eco-friendly landscaping and gardening business website featuring modern design, responsive layout, and interactive service galleries.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
