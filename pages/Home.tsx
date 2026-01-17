@@ -4,26 +4,34 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SERVICES, TESTIMONIALS } from '../constants';
 
-
-
-
+import turf from '../assets/turf.jpg';
+import lawnlay from '../assets/lawnlay.jpg';
+import Lawncare from '../assets/lawncare.jpg';
+import Pepbles from '../assets/pepbles.jpg';
+import clean from '../assets/clean.jpg';
 const HERO_SLIDES = [
   {
-    title: "Crafting Outdoor Excellence",
-  subtitle: "Professional, eco-friendly landscaping and garden design tailored to your Sydney lifestyle.",
-  image: "/assets/land1.jpg",
+    title: "Transform Your Outdoor Space",
+  subtitle: "From lush lawns to vibrant gardens, we bring your dream landscape to life across Sydney.",
+  image: clean,
   tag: "Sydney's Premier Landscapers",
   },
   {
-    title: "Sustainable Garden Design",
-    subtitle: "Transforming urban spaces into living ecosystems with native plants and water-wise solutions.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1920&q=80",
+    title: "Expert Lawn & Turf Care",
+    subtitle: "Professional installation, maintenance, and care to keep your lawn healthy, green, and beautiful year-round.",
+    image: turf,
     tag: "Eco-Friendly Expertise"
   },
   {
-    title: "Premium Hardscaping",
-    subtitle: "Durable sandstone pathways, retaining walls, and outdoor structures built for the Australian climate.",
-    image: "https://images.unsplash.com/photo-1590059345003-887413a11942?auto=format&fit=crop&w=1920&q=80",
+    title: "Beautiful Gardens Made Simple",
+    subtitle: "Our landscaping solutions combine design, planting, and care for stunning, low-maintenance outdoor spaces.",
+    image: Lawncare,
+    tag: "Quality Workmanship"
+  },
+  {
+    title: "Stunning Pebble & Stone Features",
+    subtitle: "Add elegance and texture to your garden with premium pebbles, pathways, and rock landscaping solutions.",
+    image: Pepbles,
     tag: "Quality Workmanship"
   }
 ];
@@ -42,85 +50,118 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-hidden">
       {/* Dynamic Hero Slider */}
-      <section className="relative h-screen flex items-center overflow-hidden">
-        {HERO_SLIDES.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+      {/* Dynamic Hero Slider */}
+      <section className="relative h-screen w-full overflow-hidden">
+  {HERO_SLIDES.map((slide, index) => (
+    <div
+      key={index}
+      className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+        index === currentSlide ? 'opacity-100 z-20' : 'opacity-0 z-0'
+      }`}
+    >
+      {/* Background Image */}
+      <img
+        src={slide.image}
+        alt={slide.title}
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px] z-10"></div>
+
+      {/* Content Container */}
+      <div className="relative z-20 h-full w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-3xl">
+          {/* Tag */}
+          <span
+            className={`inline-block px-4 py-2 mb-6 text-xs font-black tracking-widest uppercase bg-emerald-600 text-white rounded-lg shadow-xl transform transition-all duration-700 ${
+              index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-full object-cover transition-transform duration-[10000ms] ease-linear scale-100"
-              style={{ transform: index === currentSlide ? 'scale(1.1)' : 'scale(1)' }}
-            />
-            <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]"></div>
-            
-            <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
-              <div className="max-w-3xl pt-20">
-                <span className={`inline-block px-4 py-2 mb-6 text-xs font-black tracking-widest uppercase bg-emerald-600 text-white rounded-lg shadow-xl transform transition-all duration-700 delay-300 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                  {slide.tag}
-                </span>
-                <h1 className={`text-5xl md:text-8xl font-bold mb-8 text-white leading-[1.1] drop-shadow-2xl transition-all duration-700 delay-500 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                  {slide.title.split(' ').map((word, i) => 
-                    word.toLowerCase() === 'excellence' || word.toLowerCase() === 'design' || word.toLowerCase() === 'hardscaping'
-                    ? <span key={i} className="text-emerald-400">{word} </span> 
-                    : word + ' '
-                  )}
-                </h1>
-                <p className={`text-lg md:text-2xl mb-12 text-stone-100 max-w-xl leading-relaxed font-medium drop-shadow-lg transition-all duration-700 delay-700 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                  {slide.subtitle}
-                </p>
-                <div className={`flex flex-col sm:flex-row gap-5 transition-all duration-700 delay-1000 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                  <Link
-                    to="/contact"
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest transition-all transform hover:scale-105 shadow-2xl flex items-center justify-center gap-3 group"
-                  >
-                    Get a Free Quote <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                  <Link
-                    to="/gallery"
-                    className="bg-white/20 hover:bg-white/30 backdrop-blur-xl text-white border border-white/40 px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest transition-all text-center shadow-2xl"
-                  >
-                    View Our Projects
-                  </Link>
-                </div>
-              </div>
-            </div>
+            {slide.tag}
+          </span>
+
+          {/* Title */}
+          <h1
+            className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-white leading-tight drop-shadow-2xl transition-all duration-700 ${
+              index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}
+          >
+            {slide.title.split(' ').map((word, i) =>
+              ['excellence', 'design', 'hardscaping'].includes(word.toLowerCase()) ? (
+                <span key={i} className="text-emerald-400">{word} </span>
+              ) : (
+                word + ' '
+              )
+            )}
+          </h1>
+
+          {/* Subtitle */}
+          <p
+            className={`text-lg sm:text-xl md:text-2xl mb-8 text-stone-100 leading-relaxed font-medium drop-shadow-lg transition-all duration-700 ${
+              index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}
+          >
+            {slide.subtitle}
+          </p>
+
+          {/* Buttons */}
+          <div
+            className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-700 ${
+              index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}
+          >
+            <Link
+              to="/contact"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-full font-black text-sm uppercase tracking-widest transition-all transform hover:scale-105 shadow-2xl flex items-center justify-center gap-2"
+            >
+              Get a Free Quote <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              to="/gallery"
+              className="bg-white/20 hover:bg-white/30 backdrop-blur-xl text-white border border-white/40 px-8 py-4 sm:px-10 sm:py-5 rounded-full font-black text-sm uppercase tracking-widest transition-all text-center shadow-2xl"
+            >
+              View Our Projects
+            </Link>
           </div>
-        ))}
-
-        {/* Slider Controls */}
-        <div className="absolute z-20 bottom-12 right-4 sm:right-12 flex items-center gap-4">
-          <button
-            onClick={prevSlide}
-            className="p-4 rounded-full bg-white/10 hover:bg-emerald-600 text-white backdrop-blur-md border border-white/20 transition-all group"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="p-4 rounded-full bg-white/10 hover:bg-emerald-600 text-white backdrop-blur-md border border-white/20 transition-all group"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
-          </button>
         </div>
+      </div>
+    </div>
+  ))}
 
-        {/* Slider Dots */}
-        <div className="absolute z-20 bottom-16 left-4 sm:left-12 flex items-center gap-3">
-          {HERO_SLIDES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentSlide(i)}
-              className={`h-1.5 transition-all duration-500 rounded-full ${i === currentSlide ? 'w-12 bg-emerald-500' : 'w-4 bg-white/30'}`}
-            />
-          ))}
-        </div>
-      </section>
+  {/* Slider Controls */}
+  <div className="absolute z-30 bottom-8 right-4 sm:right-12 flex items-center gap-4">
+    <button
+      onClick={prevSlide}
+      className="p-3 sm:p-4 rounded-full bg-white/10 hover:bg-emerald-600 text-white backdrop-blur-md border border-white/20 transition-all"
+      aria-label="Previous slide"
+    >
+      <ChevronLeft className="w-5 sm:w-6 h-5 sm:h-6" />
+    </button>
+    <button
+      onClick={nextSlide}
+      className="p-3 sm:p-4 rounded-full bg-white/10 hover:bg-emerald-600 text-white backdrop-blur-md border border-white/20 transition-all"
+      aria-label="Next slide"
+    >
+      <ChevronRight className="w-5 sm:w-6 h-5 sm:h-6" />
+    </button>
+  </div>
+
+  {/* Slider Dots */}
+  <div className="absolute z-30 bottom-4 sm:bottom-12 left-1/2 transform -translate-x-1/2 flex items-center gap-2 sm:gap-3">
+    {HERO_SLIDES.map((_, i) => (
+      <button
+        key={i}
+        onClick={() => setCurrentSlide(i)}
+        className={`h-1.5 transition-all duration-500 rounded-full ${
+          i === currentSlide ? 'w-10 sm:w-12 bg-emerald-500' : 'w-3 sm:w-4 bg-white/30'
+        }`}
+      />
+    ))}
+  </div>
+</section>
+
+
 
       {/* Services Snapshot */}
       <section className="py-24 bg-white">
@@ -173,14 +214,15 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-emerald-500 font-black tracking-widest uppercase text-xs mb-4">The GreenSydney Difference</h2>
+              {/* <h2 className="text-emerald-500 font-black tracking-widest uppercase text-xs mb-4">The GreenSydney Difference</h2> */}
               <h3 className="text-4xl md:text-6xl font-bold mb-10 leading-tight">Why Homeowners Trust Us</h3>
+              <p className="text-white mb-8 line-clamp-3 leading-relaxed font-medium">At Greensydneylandscapes, we understand that your outdoor space is more than just a garden, it’s where memories are made. Homeowners across Sydney trust us because we combine expertise, attention to detail, and reliable service to transform and maintain beautiful landscapes.</p>
               <div className="space-y-8">
                 {[
-                  { title: 'Eco-Friendly Practices', desc: 'We prioritize sustainable materials and native plant species to support local biodiversity.' },
-                  { title: 'Experienced Team', desc: 'Over 10 years of experience designing and maintaining Sydney’s most iconic gardens.' },
-                  { title: 'Customized Designs', desc: 'No two gardens are the same. We tailor every project to your lifestyle and property.' },
-                  { title: 'Reliable Service', desc: 'Punctual, professional, and dedicated to achieving the highest quality finish.' }
+                  { title: 'Experienced Professionals', desc: 'Our team has years of hands-on experience in lawn care, landscaping, and garden maintenance.' },
+                  { title: 'Reliable & Punctual', desc: 'We value your time and complete every project efficiently and on schedule.' },
+                  { title: 'Tailored Solutions', desc: 'Every garden is unique. We create customized plans to suit your space, soil, and style.' },
+                  { title: 'Customer Satisfaction', desc: 'Our work isn’t finished until you’re completely happy with your garden.' }
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-6">
                     <div className="flex-shrink-0">
@@ -198,11 +240,12 @@ const Home: React.FC = () => {
             </div>
             <div className="relative">
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-700">
-                <img
-                  src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1000&q=80"
+              <img
+                  src={lawnlay}
                   alt="Quality Workmanship"
                   className="w-full h-full object-cover"
                 />
+
               </div>
               <div className="absolute -bottom-10 -left-10 bg-emerald-600 p-10 rounded-3xl shadow-2xl hidden md:block border-4 border-stone-950">
                 <p className="text-5xl font-black mb-1 text-white">10+</p>

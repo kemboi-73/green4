@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Leaf } from 'lucide-react';
 
+import logo from "../assets/logo.png";
+
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -25,12 +27,20 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-transparent'} min-h-[4rem]`}>
+
+
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-full">
           <Link to="/" className="flex items-center space-x-2">
-            <Leaf className={`w-8 h-8 ${scrolled ? 'text-emerald-600' : 'text-emerald-500 filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]'}`} />
-            <span className={`text-xl font-bold tracking-tight transition-colors ${scrolled ? 'text-stone-900' : 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'}`}>
+              <img
+      src={logo}
+      alt="GreenSydney Logo"
+      className="h-12 md:h-16 object-contain"
+    />
+
+            <span className={`text-xl font-bold tracking-tight transition-colors ${scrolled ? 'text-stone-900' : 'text-light green ]'}`}>
               GreenSydney
             </span>
           </Link>
@@ -44,7 +54,7 @@ const Navbar: React.FC = () => {
                 className={`text-sm font-semibold transition-all hover:text-emerald-400 ${
                   location.pathname === link.path 
                     ? 'text-emerald-600 underline underline-offset-4 decoration-2' 
-                    : (scrolled ? 'text-stone-800' : 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]')
+                    : (scrolled ? 'text-stone-800' : 'text-green]')
                 }`}
               >
                 {link.name}

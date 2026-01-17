@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Leaf, Instagram, Facebook, Linkedin, Phone, Mail, MapPin } from 'lucide-react';
-
+import logo from "../assets/logo.png";
 const Footer: React.FC = () => {
   return (
     <footer className="bg-stone-900 text-white pt-16 pb-8">
@@ -11,11 +11,15 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
-              <Leaf className="w-8 h-8 text-emerald-500" />
+            <img
+      src={logo}
+      alt="GreenSydney Logo"
+      className="h-12 md:h-16 object-contain"
+    />
               <span className="text-2xl font-bold tracking-tight">GreenSydney</span>
             </Link>
             <p className="text-stone-400 text-sm leading-relaxed">
-              Premium landscaping and garden design services across Sydney. We specialize in sustainable, beautiful outdoor environments.
+              Green Sydney landscapes transforms outdoor spaces into beautiful, functional, and sustainable landscapes. From lawn care to full garden makeovers, we deliver exceptional results for homes and businesses across Sydney.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="p-2 bg-stone-800 rounded-full hover:bg-emerald-600 transition-colors"><Instagram className="w-5 h-5" /></a>
@@ -39,10 +43,10 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-bold mb-6">Services</h4>
             <ul className="space-y-4">
-              <li className="text-stone-400">Residential Design</li>
-              <li className="text-stone-400">Lawn Maintenance</li>
-              <li className="text-stone-400">Hardscaping</li>
-              <li className="text-stone-400">Eco-Friendly Solutions</li>
+              <li><Link to="services/lawn-turflaying" className="text-stone-400 hover:text-emerald-500 transition-colors">Lawn and Turf laying</Link></li>
+              <li><Link to="/services/pruning-trim" className="text-stone-400 hover:text-emerald-500 transition-colors">Pruning and Trimming</Link></li>
+              <li><Link to="/services/weeding" className="text-stone-400 hover:text-emerald-500 transition-colors">Weeding</Link></li>
+              <li><Link to="/services/mulching" className="text-stone-400 hover:text-emerald-500 transition-colors">Mulching</Link></li>
             </ul>
           </div>
 
@@ -66,13 +70,12 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
-          <p>© {new Date().getFullYear()} GreenSydney Landscapes. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-emerald-500">Privacy Policy</a>
-            <a href="#" className="hover:text-emerald-500">Terms of Service</a>
-          </div>
-        </div>
+        <div className="pt-8 border-t border-stone-800 flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-stone-500">
+  <p className="text-center">
+    © {new Date().getFullYear()} GreenSydney Landscapes. All rights reserved.
+  </p>
+</div>
+
       </div>
     </footer>
   );

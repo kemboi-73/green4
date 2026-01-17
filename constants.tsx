@@ -1,46 +1,48 @@
-
 import React from 'react';
-import { Leaf, Sprout, Trees, Shovel, Ruler, Recycle } from 'lucide-react';
-import { Service, Project, Testimonial } from './types';
+// import {Sprout, Trees, Shovel, Ruler, Recycle } from 'lucide-react';
+import { Service } from './types';
+
+import lawnlay from './assets/lawnlay.jpg';
+import Lawncare from './assets/lawncare.jpg';
 
 export const SERVICES: Service[] = [
   {
-    id: 'residential-landscaping',
-    title: 'Residential Landscaping',
-    description: 'Transform your backyard into a private sanctuary with our expert design and construction.',
+    id: 'lawn-turflaying',
+    title: 'Lawn & Turf Laying',
+    description: 'Create a lush, green lawn with professionally installed turf designed to thrive in Sydney’s climate.',
     icon: 'Leaf',
-    image: 'https://images.unsplash.com/photo-1558904541-efa8c1965f1e?auto=format&fit=crop&w=800&q=80',
+    image: lawnlay,
     details: [
-      'Custom garden design',
-      'Planting schemes tailored to Sydney soil',
-      'Water feature installation',
-      'Outdoor lighting design'
+      'Premium turf supply and installation',
+      'Soil preparation and leveling',
+      'Proper lawn establishment techniques',
+      'Aftercare and watering guidance'
     ]
   },
   {
-    id: 'garden-maintenance',
-    title: 'Garden Maintenance',
-    description: 'Keep your outdoor space pristine year-round with our professional maintenance schedules.',
+    id: 'pruning-trim',
+    title: 'Pruning & Trimming',
+    description: 'Keep your garden neat and healthy with expert pruning and trimming services.',
     icon: 'Sprout',
     image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80',
     details: [
-      'Pruning and weeding',
-      'Soil health management',
-      'Pest and disease control',
-      'Seasonal planting'
+      'Hedge and shrub shaping',
+      'Tree and plant pruning',
+      'Removal of dead or overgrown branches',
+      'Seasonal pruning advice'
     ]
   },
   {
     id: 'lawn-care',
     title: 'Lawn Care & Turf',
-    description: 'Specialized turf installation and care for lush, green lawns that thrive in the Australian climate.',
+    description: 'Keep your lawn healthy, green, and well-maintained all year round with professional lawn care services.',
     icon: 'Recycle',
-    image: 'https://images.unsplash.com/photo-1533467686542-6e199d791bd1?auto=format&fit=crop&w=800&q=80',
+    image: Lawncare,
     details: [
-      'Premium turf installation',
-      'Aeration and top dressing',
+      'Regular mowing, trimming, and edging',
+      'Fertilization and soil health management',
       'Irrigation system setup',
-      'Fertilization programs'
+      'Seasonal care and expert advice'
     ]
   },
   {
@@ -57,29 +59,29 @@ export const SERVICES: Service[] = [
     ]
   },
   {
-    id: 'tree-services',
-    title: 'Tree Planting & Pruning',
-    description: 'Expert arboriculture services to ensure the health and safety of your trees.',
+    id: 'weeding',
+    title: 'Weeding',
+    description: 'Restore the beauty of your garden by removing unwanted weeds safely and effectively. Our weeding services help prevent regrowth while keeping your plants and soil healthy.',
     icon: 'Trees',
     image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80',
     details: [
-      'Tree health assessment',
-      'Precision pruning',
-      'Strategic tree planting',
-      'Stump grinding'
+      'Manual and targeted weed removal',
+      'Weed control for garden beds and lawns',
+      'Prevention strategies to reduce regrowth',
+      'Safe practices for plants and soil'
     ]
   },
   {
-    id: 'sustainable-solutions',
-    title: 'Eco-Friendly Solutions',
-    description: 'Eco-conscious landscaping using native plants and water-saving technologies.',
+    id: 'mulching',
+    title: 'Mulching',
+    description: 'Protect and nourish your garden with professional mulching solutions. Mulch helps retain moisture, improve soil health, suppress weeds, and enhance the overall appearance of your garden.',
     icon: 'Recycle',
     image: 'https://images.unsplash.com/photo-1585914969248-6a3628e83348?auto=format&fit=crop&w=800&q=80',
     details: [
-      'Native plant specialist',
-      'Rainwater harvesting systems',
-      'Permeable paving',
-      'Drought-tolerant garden design'
+      'Selection of suitable mulch types',
+      'Garden bed preparation',
+      'Even and professional mulch application',
+      'Soil moisture and temperature protection'
     ]
   }
 ];
