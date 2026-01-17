@@ -1,10 +1,18 @@
 import React from 'react';
-// import {Sprout, Trees, Shovel, Ruler, Recycle } from 'lucide-react';
+import {Sprout, Trees, Shovel, Ruler, Recycle } from 'lucide-react';
 import { Service } from './types';
 
 import lawnlay from './assets/lawnlay.jpg';
-import Lawncare from './assets/lawncare.jpg';
-
+// import Lawncare from './assets/lawncare.jpg';
+import mulching from './assets/mulching.jpg';
+import weeding from './assets/weeding.jpeg';
+import paving from './assets/paving.jpg';
+import lawn2 from './assets/lawn2.jpg';
+import lawn3 from './assets/lawn3.jpg';
+import pepbles from './assets/pepbles.jpg';
+import pebbles1 from './assets/pebbles1.jpg';
+import pebbles3 from './assets/pebbles3.jpg';
+import triming from './assets/triming.jpg';
 export const SERVICES: Service[] = [
   {
     id: 'lawn-turflaying',
@@ -12,6 +20,7 @@ export const SERVICES: Service[] = [
     description: 'Create a lush, green lawn with professionally installed turf designed to thrive in Sydney’s climate.',
     icon: 'Leaf',
     image: lawnlay,
+    gallery: [lawnlay, lawn3, lawn2],
     details: [
       'Premium turf supply and installation',
       'Soil preparation and leveling',
@@ -24,7 +33,8 @@ export const SERVICES: Service[] = [
     title: 'Pruning & Trimming',
     description: 'Keep your garden neat and healthy with expert pruning and trimming services.',
     icon: 'Sprout',
-    image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80',
+    image: triming,
+    gallery: [triming, ],
     details: [
       'Hedge and shrub shaping',
       'Tree and plant pruning',
@@ -33,24 +43,12 @@ export const SERVICES: Service[] = [
     ]
   },
   {
-    id: 'lawn-care',
-    title: 'Lawn Care & Turf',
-    description: 'Keep your lawn healthy, green, and well-maintained all year round with professional lawn care services.',
-    icon: 'Recycle',
-    image: Lawncare,
-    details: [
-      'Regular mowing, trimming, and edging',
-      'Fertilization and soil health management',
-      'Irrigation system setup',
-      'Seasonal care and expert advice'
-    ]
-  },
-  {
     id: 'hardscaping',
     title: 'Hardscaping & Paving',
     description: 'Durable and beautiful pathways, retaining walls, and outdoor structures built to last.',
     icon: 'Ruler',
-    image: 'https://images.unsplash.com/photo-1590059345003-887413a11942?auto=format&fit=crop&w=800&q=80',
+    image: paving,
+    gallery: [],
     details: [
       'Sandstone and concrete paving',
       'Timber and stone retaining walls',
@@ -63,7 +61,8 @@ export const SERVICES: Service[] = [
     title: 'Weeding',
     description: 'Restore the beauty of your garden by removing unwanted weeds safely and effectively. Our weeding services help prevent regrowth while keeping your plants and soil healthy.',
     icon: 'Trees',
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80',
+    image: weeding,
+    gallery: [],
     details: [
       'Manual and targeted weed removal',
       'Weed control for garden beds and lawns',
@@ -76,15 +75,30 @@ export const SERVICES: Service[] = [
     title: 'Mulching',
     description: 'Protect and nourish your garden with professional mulching solutions. Mulch helps retain moisture, improve soil health, suppress weeds, and enhance the overall appearance of your garden.',
     icon: 'Recycle',
-    image: 'https://images.unsplash.com/photo-1585914969248-6a3628e83348?auto=format&fit=crop&w=800&q=80',
+    image: mulching,
+    gallery: [],
     details: [
       'Selection of suitable mulch types',
       'Garden bed preparation',
       'Even and professional mulch application',
       'Soil moisture and temperature protection'
     ]
+  },
+  {
+    id: 'pebbles',
+    title: 'Pebble Landscaping',
+    description: 'Add elegance and texture to your garden with premium pebbles and stone features. Perfect for pathways, rock gardens, and decorative beds that enhance the beauty and functionality of your outdoor space.',
+    icon: 'Layers',
+    image: pepbles, 
+    gallery: [pebbles1, pebbles3, lawn2],
+    details: [
+      'Stylish pebble pathways and walkways',
+      'Decorative rock gardens and borders',
+      'Mulch replacement with decorative stones',
+      'Durable and low-maintenance landscaping solutions'
+    ]
   }
-];
+]
 
 export const PROJECTS: Project[] = [
   {

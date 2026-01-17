@@ -1,67 +1,156 @@
-
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Target, Users, ShieldCheck, Heart } from 'lucide-react';
 import clean from '../assets/clean.jpg';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 }
+};
+
 const About: React.FC = () => {
   return (
-    <div className="py-12">
+    <div className="py-20 overflow-hidden">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-          <div className="relative">
-          <img
-                src={clean}
-                alt="Quality Workmanship"
-                className="w-full h-full object-cover"
-              />
 
-            <div className="absolute -bottom-6 -right-6 w-1/2 aspect-video bg-emerald-600 p-8 rounded-2xl text-white shadow-xl hidden md:block">
-              <p className="text-2xl font-bold italic">"Rooted in Excellence, Growing for Sydney."</p>
+        {/* ===== HERO / INTRO ===== */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-28">
+          
+          {/* Image */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative group"
+          >
+            <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl">
+              <img
+                src={clean}
+                alt="GreenSydney Landscaping Work"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
-          </div>
-          <div>
-            <h1 className="text-5xl font-bold text-stone-900 mb-8">GreenSydney: Where Nature Meets Artistry</h1>
+
+            {/* Floating Quote */}
+            <div className="absolute -bottom-8 -right-8 bg-emerald-600 text-white p-8 rounded-2xl shadow-xl hidden md:block max-w-xs">
+              <p className="text-xl font-bold italic leading-snug">
+                “Rooted in Excellence, Growing for Sydney.”
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Content */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+          >
+            <span className="inline-block mb-4 text-xs font-black tracking-widest uppercase text-emerald-600">
+              About GreenSydney
+            </span>
+
+            <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
+              Where Nature Meets Artistry
+            </h1>
+
             <p className="text-lg text-stone-600 mb-6 leading-relaxed">
-            At Greensydneylandscapes, we are passionate about transforming outdoor spaces into beautiful, functional, and sustainable landscapes. Based in Sydney, we specialize in landscaping, lawn care, garden maintenance, and outdoor enhancements for both residential and commercial properties.
+              Green Sydney landscapes is a Sydney-based landscaping company dedicated
+              to transforming outdoor spaces into beautiful, functional, and
+              sustainable environments.
             </p>
-            <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-            With years of experience and a team of skilled professionals, we pride ourselves on delivering exceptional results, personalized solutions, and reliable service. From creating lush lawns to installing stunning gardens and maintaining them year-round, we are committed to helping homeowners and businesses enjoy their outdoor spaces to the fullest.
+
+            <p className="text-lg text-stone-600 mb-10 leading-relaxed">
+              From residential gardens to commercial landscapes, our experienced
+              team delivers thoughtful design, premium workmanship, and reliable
+              maintenance that stands the test of time.
             </p>
-            <div className="grid grid-cols-2 gap-8">
+
+            {/* Stats */}
+            <div className="flex gap-14">
               <div>
-                <h4 className="text-3xl font-bold text-emerald-600">100+</h4>
-                <p className="text-stone-500 font-medium uppercase text-xs tracking-wider">Projects Completed</p>
+                <p className="text-4xl font-bold text-emerald-600">100+</p>
+                <p className="text-xs uppercase tracking-widest text-stone-500 font-medium">
+                  Projects Completed
+                </p>
               </div>
               <div>
-                <h4 className="text-3xl font-bold text-emerald-600">12</h4>
-                <p className="text-stone-500 font-medium uppercase text-xs tracking-wider">Expert Staff</p>
+                <p className="text-4xl font-bold text-emerald-600">12+</p>
+                <p className="text-xs uppercase tracking-widest text-stone-500 font-medium">
+                  Expert Staff
+                </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Mission & Values */}
-        <div className="bg-stone-100 rounded-[3rem] p-12 md:p-20 mb-24">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Our Core Values</h2>
-            <p className="text-stone-600">The principles that drive every project we touch.</p>
-          </div>
+        {/* ===== VALUES SECTION ===== */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.15 }}
+          className="bg-stone-100 rounded-[3rem] p-12 md:p-20"
+        >
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-20"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+              Our Core Values
+            </h2>
+            <p className="text-stone-600 max-w-xl mx-auto">
+              The principles that guide every project, every client, and every
+              outdoor space we create.
+            </p>
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {[
-              { icon: <Target className="w-10 h-10" />, title: 'Quality', text: 'We use premium materials, proven techniques, and pay attention to every detail to deliver results that last.' },
-              { icon: <Heart className="w-10 h-10" />, title: 'Reliability', text: 'We respect your time and your property, completing projects efficiently and on schedule' },
-              { icon: <ShieldCheck className="w-10 h-10" />, title: 'Customer Focus', text: 'Your satisfaction is our priority. We listen, understand your vision, and tailor solutions to meet your needs.' },
-              { icon: <Users className="w-10 h-10" />, title: 'Sustainability', text: 'We incorporate eco-friendly practices that support soil health, water efficiency, and long-term garden wellness.' }
+              {
+                icon: <Target className="w-9 h-9" />,
+                title: 'Quality',
+                text: 'Premium materials, proven techniques, and attention to detail in every project.'
+              },
+              {
+                icon: <Heart className="w-9 h-9" />,
+                title: 'Reliability',
+                text: 'We respect your time and property, delivering on schedule with care.'
+              },
+              {
+                icon: <ShieldCheck className="w-9 h-9" />,
+                title: 'Customer Focus',
+                text: 'Your vision matters. We listen closely and tailor every solution.'
+              },
+              {
+                icon: <Users className="w-9 h-9" />,
+                title: 'Sustainability',
+                text: 'Eco-friendly practices that support soil health and water efficiency.'
+              }
             ].map((value, idx) => (
-              <div key={idx} className="text-center">
-                <div className="bg-white w-20 h-20 rounded-2xl shadow-sm flex items-center justify-center mx-auto mb-6 text-emerald-600">
+              <motion.div
+                key={idx}
+                variants={fadeUp}
+                transition={{ duration: 0.6 }}
+                className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition-all"
+              >
+                <div className="w-20 h-20 rounded-2xl bg-emerald-50 flex items-center justify-center mx-auto mb-6 text-emerald-600">
                   {value.icon}
                 </div>
-                <h4 className="text-xl font-bold mb-3">{value.title}</h4>
-                <p className="text-stone-500 text-sm leading-relaxed">{value.text}</p>
-              </div>
+                <h4 className="text-xl font-bold mb-3 text-stone-900">
+                  {value.title}
+                </h4>
+                <p className="text-stone-500 text-sm leading-relaxed">
+                  {value.text}
+                </p>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

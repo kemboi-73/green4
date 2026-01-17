@@ -6,6 +6,7 @@ export interface Service {
   icon: string;
   image: string;
   details: string[];
+  gallery?: string[];
 }
 
 export interface Project {

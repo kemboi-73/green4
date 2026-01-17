@@ -1,26 +1,13 @@
-
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send, Clock, Globe } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: 'residential',
-    message: ''
-  });
-
   const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
 
   return (
     <div className="py-24 bg-stone-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-7xl font-bold text-stone-900 mb-8">Get In Touch</h1>
           <p className="text-xl text-stone-700 max-w-2xl mx-auto font-medium">
@@ -36,7 +23,7 @@ const Contact: React.FC = () => {
               <div className="space-y-10">
                 {[
                   { icon: <Phone className="w-7 h-7" />, label: 'Phone', val: '02 8765 4321', desc: 'Mon-Fri: 8am – 5pm' },
-                  { icon: <Mail className="w-7 h-7" />, label: 'Email', val: 'hello@greensydney.com.au', desc: 'Fast response within 24h' },
+                  { icon: <Mail className="w-7 h-7" />, label: 'Email', val: 'info@gs.com.au', desc: 'Fast response within 24h' },
                   { icon: <MapPin className="w-7 h-7" />, label: 'Office', val: '123 Gardenia Ave, North Sydney', desc: 'Visit our design studio' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-8 group">
@@ -53,16 +40,14 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
+            {/* Service Areas */}
             <div className="bg-stone-950 text-white p-12 rounded-[3rem] shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-600/20 rounded-full blur-3xl -mr-24 -mt-24"></div>
               <h3 className="text-3xl font-bold mb-8">Service Areas</h3>
               <div className="grid grid-cols-2 gap-6 text-stone-300 font-bold text-sm">
-                <div className="flex items-center gap-3"><Globe className="w-4 h-4 text-emerald-500" /> Sydney CBD</div>
-                <div className="flex items-center gap-3"><Globe className="w-4 h-4 text-emerald-500" /> Eastern Suburbs</div>
-                <div className="flex items-center gap-3"><Globe className="w-4 h-4 text-emerald-500" /> North Shore</div>
-                <div className="flex items-center gap-3"><Globe className="w-4 h-4 text-emerald-500" /> Inner West</div>
-                <div className="flex items-center gap-3"><Globe className="w-4 h-4 text-emerald-500" /> Northern Beaches</div>
-                <div className="flex items-center gap-3"><Globe className="w-4 h-4 text-emerald-500" /> Sutherland Shire</div>
+                {['Sydney CBD','Eastern Suburbs','North Shore','Inner West','Northern Beaches','Sutherland Shire'].map((area, idx) => (
+                  <div key={idx} className="flex items-center gap-3"><Globe className="w-4 h-4 text-emerald-500" /> {area}</div>
+                ))}
               </div>
               <div className="mt-10 pt-10 border-t border-stone-800 flex items-center gap-4 text-stone-400 font-medium">
                 <Clock className="w-6 h-6 text-emerald-500" />
@@ -74,63 +59,51 @@ const Contact: React.FC = () => {
           {/* Contact Form */}
           <div className="lg:col-span-7">
             <div className="bg-white p-10 md:p-16 rounded-[3rem] shadow-2xl border border-stone-100">
-              {submitted ? (
-                <div className="text-center py-16">
-                  <div className="w-24 h-24 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
-                    <Send className="w-12 h-12" />
-                  </div>
-                  <h3 className="text-4xl font-bold text-stone-900 mb-6">Inquiry Sent!</h3>
-                  <p className="text-stone-700 text-xl leading-relaxed font-medium">Thank you for your interest. One of our lead designers will contact you within one business day.</p>
-                  <button 
-                    onClick={() => setSubmitted(false)}
-                    className="mt-10 bg-stone-900 text-white px-10 py-4 rounded-full font-black uppercase text-xs tracking-widest hover:bg-emerald-600 transition-all"
-                  >
-                    Send Another Message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-8">
+              {!submitted ? (
+                <form
+                  action="https://formspree.io/f/mlgggawn"
+                  method="POST"
+                  className="space-y-8"
+                  onSubmit={() => setSubmitted(true)}
+                >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
                       <label className="text-xs font-black text-stone-900 uppercase tracking-widest ml-1">Full Name</label>
                       <input
                         type="text"
+                        name="name"
                         required
                         className="w-full bg-stone-50 border-2 border-stone-100 rounded-2xl px-6 py-5 focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all font-bold text-stone-900"
                         placeholder="e.g. Michael Smith"
-                        value={formState.name}
-                        onChange={(e) => setFormState({...formState, name: e.target.value})}
                       />
                     </div>
                     <div className="space-y-3">
                       <label className="text-xs font-black text-stone-900 uppercase tracking-widest ml-1">Email Address</label>
                       <input
                         type="email"
+                        name="email"
                         required
                         className="w-full bg-stone-50 border-2 border-stone-100 rounded-2xl px-6 py-5 focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all font-bold text-stone-900"
-                        placeholder="mike@company.com"
-                        value={formState.email}
-                        onChange={(e) => setFormState({...formState, email: e.target.value})}
+                        placeholder="email@email.com"
                       />
                     </div>
                   </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
                       <label className="text-xs font-black text-stone-900 uppercase tracking-widest ml-1">Mobile Number</label>
                       <input
                         type="tel"
+                        name="phone"
                         className="w-full bg-stone-50 border-2 border-stone-100 rounded-2xl px-6 py-5 focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all font-bold text-stone-900"
                         placeholder="0412 345 678"
-                        value={formState.phone}
-                        onChange={(e) => setFormState({...formState, phone: e.target.value})}
                       />
                     </div>
                     <div className="space-y-3">
                       <label className="text-xs font-black text-stone-900 uppercase tracking-widest ml-1">Service Type</label>
                       <select
+                        name="service"
                         className="w-full bg-stone-50 border-2 border-stone-100 rounded-2xl px-6 py-5 focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all font-bold text-stone-900 appearance-none"
-                        value={formState.service}
-                        onChange={(e) => setFormState({...formState, service: e.target.value})}
                       >
                         <option value="residential">Residential Landscaping</option>
                         <option value="maintenance">Maintenance & Care</option>
@@ -140,16 +113,17 @@ const Contact: React.FC = () => {
                       </select>
                     </div>
                   </div>
+
                   <div className="space-y-3">
                     <label className="text-xs font-black text-stone-900 uppercase tracking-widest ml-1">Project Description</label>
                     <textarea
+                      name="message"
                       rows={6}
                       className="w-full bg-stone-50 border-2 border-stone-100 rounded-[2rem] px-8 py-6 focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all font-bold text-stone-900"
                       placeholder="Tell us about your garden goals and any specific features you'd like..."
-                      value={formState.message}
-                      onChange={(e) => setFormState({...formState, message: e.target.value})}
                     ></textarea>
                   </div>
+
                   <button
                     type="submit"
                     className="w-full bg-emerald-600 hover:bg-stone-900 text-white py-6 rounded-2xl font-black text-lg shadow-[0_20px_40px_rgba(5,150,105,0.3)] hover:shadow-2xl transition-all transform hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-4 uppercase tracking-[0.1em]"
@@ -157,12 +131,28 @@ const Contact: React.FC = () => {
                     Request Free Consultation <Send className="w-6 h-6" />
                   </button>
                 </form>
+              ) : (
+                <div className="text-center py-16">
+                  <div className="w-24 h-24 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+                    <Send className="w-12 h-12" />
+                  </div>
+                  <h3 className="text-4xl font-bold text-stone-900 mb-6">Inquiry Sent!</h3>
+                  <p className="text-stone-700 text-xl leading-relaxed font-medium">
+                    Thank you for your interest. One of our lead designers will contact you within one business day.
+                  </p>
+                  <button 
+                    onClick={() => setSubmitted(false)}
+                    className="mt-10 bg-stone-900 text-white px-10 py-4 rounded-full font-black uppercase text-xs tracking-widest hover:bg-emerald-600 transition-all"
+                  >
+                    Send Another Message
+                  </button>
+                </div>
               )}
             </div>
           </div>
         </div>
 
-        {/* Maps Section */}
+        {/* Map */}
         <div className="mt-24">
           <div className="bg-white rounded-[4rem] overflow-hidden h-[600px] shadow-2xl relative border-8 border-white p-1">
             <iframe 
