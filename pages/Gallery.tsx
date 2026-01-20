@@ -2,15 +2,16 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '../constants';
 import { Play, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Gallery: React.FC = () => {
-  const [filter, setFilter] = useState<'All' | 'Residential' | 'Commercial' | 'Sustainability'>('All');
+  const [filter, setFilter] = useState<'All' | 'Lawn and Turf' | 'Garden Care' | 'Garden Accents'>('All');
 
   const filteredProjects = filter === 'All' 
     ? PROJECTS 
     : PROJECTS.filter(p => p.category === filter);
 
-  const categories: ('All' | 'Residential' | 'Commercial' | 'Sustainability')[] = ['All', 'Residential', 'Commercial', 'Sustainability'];
+  const categories: ('All' | 'Lawn and Turf' | 'Garden Care' | 'Garden Accents')[] = ['All', 'Lawn and Turf', 'Garden Care', 'Garden Accents'];
 
   return (
     <div className="py-24 bg-stone-50 min-h-screen">
@@ -46,7 +47,7 @@ const Gallery: React.FC = () => {
               {/* Image Container */}
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img
-                  src={project.imageUrl}
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -60,9 +61,13 @@ const Gallery: React.FC = () => {
                   </span>
                   <h3 className="text-3xl font-bold text-white mb-3">{project.title}</h3>
                   <p className="text-stone-300 text-sm leading-relaxed mb-6">{project.description}</p>
-                  <div className="flex items-center gap-2 text-emerald-400 font-bold uppercase text-xs tracking-widest">
-                    Project Details <ArrowRight className="w-4 h-4" />
-                  </div>
+                  <Link
+  to={`/projects/${project.id}`}
+  className="flex items-center gap-2 text-emerald-400 font-bold uppercase text-xs tracking-widest"
+>
+  View Project <ArrowRight className="w-4 h-4" />
+</Link>
+
                 </div>
 
                 {project.videoUrl && (
@@ -81,9 +86,13 @@ const Gallery: React.FC = () => {
                 </span>
                 <h3 className="text-2xl font-bold text-stone-900 mb-2">{project.title}</h3>
                 <p className="text-stone-600 text-sm leading-relaxed mb-4">{project.description}</p>
-                <div className="text-emerald-600 font-black uppercase text-xs tracking-widest flex items-center gap-2">
-                  View Project <ArrowRight className="w-4 h-4" />
-                </div>
+                <Link
+  to={`/projects/${project.id}`}
+  className="text-emerald-600 font-black uppercase text-xs tracking-widest flex items-center gap-2"
+>
+  View Project <ArrowRight className="w-4 h-4" />
+</Link>
+
               </div>
             </div>
           ))}

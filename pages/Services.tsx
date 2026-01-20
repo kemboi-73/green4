@@ -24,9 +24,9 @@ const Services: React.FC = () => {
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute top-6 right-6 bg-emerald-600 text-white p-4 rounded-2xl shadow-xl">
+                {/* <div className="absolute top-6 right-6 bg-emerald-600 text-white p-4 rounded-2xl shadow-xl">
                   <Leaf className="w-6 h-6" />
-                </div>
+                </div> */}
               </div>
               <div className="p-10 flex-grow flex flex-col">
                 <h3 className="text-2xl font-bold mb-5 text-stone-900 group-hover:text-emerald-600 transition-colors">{service.title}</h3>

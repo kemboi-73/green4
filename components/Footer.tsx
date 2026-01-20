@@ -16,14 +16,14 @@ const Footer: React.FC = () => {
       alt="GreenSydney Logo"
       className="h-12 md:h-16 object-contain"
     />
-              <span className="text-2xl font-bold tracking-tight">GreenSydney</span>
+              <span className="text-2xl font-bold tracking-tight">Green Sydney</span>
             </Link>
             <p className="text-stone-400 text-sm leading-relaxed">
               Green Sydney landscapes transforms outdoor spaces into beautiful, functional, and sustainable landscapes. From lawn care to full garden makeovers, we deliver exceptional results for homes and businesses across Sydney.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="p-2 bg-stone-800 rounded-full hover:bg-emerald-600 transition-colors"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="p-2 bg-stone-800 rounded-full hover:bg-emerald-600 transition-colors"><Facebook className="w-5 h-5" /></a>
+              <a href="https://www.facebook.com/share/1AS6Wsj1JB/" className="p-2 bg-stone-800 rounded-full hover:bg-emerald-600 transition-colors"><Facebook className="w-5 h-5" /></a>
               <a href="#" className="p-2 bg-stone-800 rounded-full hover:bg-emerald-600 transition-colors"><Linkedin className="w-5 h-5" /></a>
             </div>
           </div>
@@ -49,19 +49,30 @@ const Footer: React.FC = () => {
               <li><Link to="/services/mulching" className="text-stone-400 hover:text-emerald-500 transition-colors">Mulching</Link></li>
             </ul>
           </div>
-
+          
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-bold mb-6">Get In Touch</h4>
             <ul className="space-y-4">
-              <li className="flex items-center space-x-3 text-stone-400">
-                <Phone className="w-5 h-5 text-emerald-500" />
-                <span>02 8765 4321</span>
-              </li>
-              <li className="flex items-center space-x-3 text-stone-400">
-                <Mail className="w-5 h-5 text-emerald-500" />
-                <span>hello@greensydney.com.au</span>
-              </li>
+            <li className="flex items-center space-x-3 text-stone-400">
+            <Phone className="w-5 h-5 text-emerald-500" />
+            <a href="tel:+61416801250" className="hover:underline">
+            04 1680 1250
+            </a>
+          </li>
+
+          <li className="flex items-center space-x-3 text-stone-400 break-all">
+  <Mail className="w-5 h-5 text-emerald-500" />
+  <a href="mailto:info@greensydneylandscapes.com.au" className="break-words hover:underline">
+    info@greensydneylandscapes.com.au
+  </a>
+</li>
+
+
+
+
+
+
               <li className="flex items-start space-x-3 text-stone-400">
                 <MapPin className="w-5 h-5 text-emerald-500 mt-1" />
                 <span>123 Gardenia Ave,<br />North Sydney, NSW 2060</span>

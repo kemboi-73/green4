@@ -4,6 +4,40 @@ import { Phone, Mail, MapPin, Send, Clock, Globe } from 'lucide-react';
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // prevent default browser submission
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      service: formData.get("service"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("https://formspree.io/f/mzddvlwl", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitted(true); // show success message
+        form.reset(); // clear form inputs
+      } else {
+        alert("Failed to send. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send. Please try again.");
+    }
+  };
+
   return (
     <div className="py-24 bg-stone-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,12 +94,7 @@ const Contact: React.FC = () => {
           <div className="lg:col-span-7">
             <div className="bg-white p-10 md:p-16 rounded-[3rem] shadow-2xl border border-stone-100">
               {!submitted ? (
-                <form
-                  action="https://formspree.io/f/mlgggawn"
-                  method="POST"
-                  className="space-y-8"
-                  onSubmit={() => setSubmitted(true)}
-                >
+                <form className="space-y-8" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
                       <label className="text-xs font-black text-stone-900 uppercase tracking-widest ml-1">Full Name</label>

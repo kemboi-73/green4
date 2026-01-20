@@ -6,19 +6,19 @@ import lawnlay from './assets/lawnlay.jpg';
 // import Lawncare from './assets/lawncare.jpg';
 import mulching from './assets/mulching.jpg';
 import weeding from './assets/weeding.jpeg';
-import paving from './assets/paving.jpg';
 import lawn2 from './assets/lawn2.jpg';
 import lawn3 from './assets/lawn3.jpg';
 import pepbles from './assets/pepbles.jpg';
 import pebbles1 from './assets/pebbles1.jpg';
 import pebbles3 from './assets/pebbles3.jpg';
 import triming from './assets/triming.jpg';
+import turf from './assets/turf.jpg';
+import lawncare from './assets/lawncare.jpg';
 export const SERVICES: Service[] = [
   {
     id: 'lawn-turflaying',
     title: 'Lawn & Turf Laying',
     description: 'Create a lush, green lawn with professionally installed turf designed to thrive in Sydney’s climate.',
-    icon: 'Leaf',
     image: lawnlay,
     gallery: [lawnlay, lawn3, lawn2],
     details: [
@@ -32,7 +32,6 @@ export const SERVICES: Service[] = [
     id: 'pruning-trim',
     title: 'Pruning & Trimming',
     description: 'Keep your garden neat and healthy with expert pruning and trimming services.',
-    icon: 'Sprout',
     image: triming,
     gallery: [triming, ],
     details: [
@@ -42,25 +41,11 @@ export const SERVICES: Service[] = [
       'Seasonal pruning advice'
     ]
   },
-  {
-    id: 'hardscaping',
-    title: 'Hardscaping & Paving',
-    description: 'Durable and beautiful pathways, retaining walls, and outdoor structures built to last.',
-    icon: 'Ruler',
-    image: paving,
-    gallery: [],
-    details: [
-      'Sandstone and concrete paving',
-      'Timber and stone retaining walls',
-      'Outdoor decking',
-      'Pergola construction'
-    ]
-  },
+ 
   {
     id: 'weeding',
     title: 'Weeding',
     description: 'Restore the beauty of your garden by removing unwanted weeds safely and effectively. Our weeding services help prevent regrowth while keeping your plants and soil healthy.',
-    icon: 'Trees',
     image: weeding,
     gallery: [],
     details: [
@@ -74,7 +59,7 @@ export const SERVICES: Service[] = [
     id: 'mulching',
     title: 'Mulching',
     description: 'Protect and nourish your garden with professional mulching solutions. Mulch helps retain moisture, improve soil health, suppress weeds, and enhance the overall appearance of your garden.',
-    icon: 'Recycle',
+
     image: mulching,
     gallery: [],
     details: [
@@ -88,7 +73,7 @@ export const SERVICES: Service[] = [
     id: 'pebbles',
     title: 'Pebble Landscaping',
     description: 'Add elegance and texture to your garden with premium pebbles and stone features. Perfect for pathways, rock gardens, and decorative beds that enhance the beauty and functionality of your outdoor space.',
-    icon: 'Layers',
+
     image: pepbles, 
     gallery: [pebbles1, pebbles3, lawn2],
     details: [
@@ -103,25 +88,45 @@ export const SERVICES: Service[] = [
 export const PROJECTS: Project[] = [
   {
     id: 'p1',
-    title: 'Coastal Paradise',
-    category: 'Residential',
-    imageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
-    description: 'A complete overhaul of a beachfront property featuring drought-resistant native plants.'
+    title: 'Lawn and Turf Laying',
+    category: 'Lawn and Turf',
+    image: turf,
+    description: 'Get a lush, green lawn with professionally installed turf designed to thrive in Sydney’s climate.',
+    summary:
+      'We expertly lay turf across the property, with precise soil preparation and attention to detail. We ensure the end result is a resilient, low-maintenance lawn that elevates the home’s curb appeal while providing a perfect space for outdoor activities.',
+    gallery: [lawnlay, lawn2, lawn2, lawn3, lawncare],
   },
   {
     id: 'p2',
-    title: 'Modern Terrace',
-    category: 'Residential',
-    imageUrl: 'https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=1200&q=80',
-    description: 'Sleek hardscaping and lighting for a contemporary Sydney terrace house.'
+    title: 'Pebbles & Decorative Stone',
+    category: 'Garden Accents',
+    image: pebbles1,
+    description: 'Clean, polished stone features that define spaces and enhance visual appeal.',
+    summary:
+      'With uses of a mix of natural pebbles and decorative stones to outline walkways, garden beds, and focal points. These low-maintenance features provide texture, color contrast, and a modern finish that elevates the overall look of the property',
+    gallery: [ pepbles, pebbles3
+    ]
   },
   {
     id: 'p3',
-    title: 'Corporate Eco-Garden',
-    category: 'Commercial',
-    imageUrl: 'https://images.unsplash.com/photo-1466611653911-95282fc3656b?auto=format&fit=crop&w=1200&q=80',
-    description: 'Sustainable green space for a North Sydney office complex.'
-  }
+    title: 'Pruning & Trimming',
+    category: 'Garden Care',
+    image: triming,
+    description: 'We do expert pruning and trimming for neat, healthy shrubs, hedges, and trees.',
+    summary:
+      'We maintain the health and appearance of plants while promoting balanced growth. The techniques we use include seasonal pruning, shaping, and removing dead branches to ensure long-term garden vitality.',
+    gallery: [  ]
+  },
+  {
+    id: 'p4',
+    title: 'Weeding & Mulching',
+    category: 'Garden Care',
+    image: weeding,
+    description: 'Restored garden beds with expert weed removal and professionally applied mulch, enhancing both appearance and soil health.',
+    summary:
+      'This project demonstrates how overgrown and neglected garden beds were transformed into healthy, thriving landscapes. We carefully removed invasive weeds and applied high-quality mulch to suppress regrowth, retain soil moisture, and enrich the soil. The result is a tidy, visually appealing garden that promotes plant health and low-maintenance care, showcasing both functionality and aesthetics in one comprehensive solution.',
+    gallery: [  ]
+  },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
