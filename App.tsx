@@ -9,7 +9,7 @@ import ServiceDetail from './pages/ServiceDetail';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import ProjectDetail from './pages/ProjectDetail';
-
+import NotFound from "./pages/NotFound";
 <Route path="/projects/:id" element={<ProjectDetail />} />
 
 // Scroll to top on route change
@@ -38,6 +38,8 @@ const App: React.FC = () => {
 
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          {/* Catch all other routes */}
+        <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

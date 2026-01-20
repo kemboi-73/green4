@@ -1,0 +1,14 @@
+# Allow all search engines to crawl the public site
+User-agent: *
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /login/
+Disallow: /private/
+Disallow: /terms-and-conditions/
+Disallow: /policy/
+
+# Allow crawling of all other pages
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.greensydneylandscapes.com.au/sitemap.xml
